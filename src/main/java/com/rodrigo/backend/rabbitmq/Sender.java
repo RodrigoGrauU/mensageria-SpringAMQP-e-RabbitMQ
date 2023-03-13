@@ -29,7 +29,7 @@ public class Sender {
 
             //criar um novo canal
             Channel channel = connection.createChannel();
-            System.out.println(channel);
+            System.out.println("Canal: " + channel);
 
             //declarar a fila que será usada
             //nome da fila, exclusiva, autodelete, durable, map(args)
@@ -38,8 +38,7 @@ public class Sender {
             //criar a mensagem
             String message = "hello world, this is my first created Spring Program.";
 
-            //enviar a mensagem - não há o nome da exchange (primeiro parâmetro) pois não está sendo utilizado nesse primeiro
-//        momento)
+            //enviar a mensagem - não há o nome da exchange (primeiro parâmetro) pois não está sendo utilizado nesse primeiro momento)
             channel.basicPublish("", NAME_QUEUE, null, message.getBytes(StandardCharsets.UTF_8));
 
             System.out.println("[x] Sent '" + message + "'");
